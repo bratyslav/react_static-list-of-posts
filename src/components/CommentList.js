@@ -4,6 +4,8 @@ import '../App.css';
 import comments from '../api/comments';
 import Comment from './Comment';
 
+// DONE
+
 const CommentList = (props) => (
   <div className="post__comments-list">
     <div className="post__comments-list-title">
@@ -11,8 +13,8 @@ const CommentList = (props) => (
     </div>
     {
       comments
-        .filter((comment) => comment['postId'] === props.postId)
-        .map((comment) => <Comment commentId={comment['id']} />)
+        .filter((comment) => comment.postId === props.postId)
+        .map((comment) => <Comment commentId={comment.id} />)
     }
   </div>
 );

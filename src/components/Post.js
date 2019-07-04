@@ -6,21 +6,21 @@ import User from './User';
 import CommentList from './CommentList';
 
 const Post = (props) => {
-  const userId = posts.find((post) => post['id'] === props.postId)['userId'];
+  const userId = posts.find((post) => post.id === props.postId).userId;
 
   return (
     <div>
       <h2 className="post__title">
         {
           posts
-            .find((post) => post['id'] === props.postId)
+            .find((post) => post.id === props.postId)
             ['title']
         }
       </h2>
       <div className="post__body">
         {
           posts
-            .find((post) => post['id'] === props.postId)
+            .find((post) => post.id === props.postId)
             ['body']
         }
       </div>

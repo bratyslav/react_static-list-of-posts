@@ -7,19 +7,19 @@ const Comment = (props) => (
   <div className="post__comment">
     <div>
       {
-        comments.find((comment) => comment['id'] === props.commentId)
+        comments.find((comment) => comment.id === props.commentId)
         ['name']
       }
     </div>
     <div>
       {
-        comments.find((comment) => comment['id'] === props.commentId)
+        comments.find((comment) => comment.id === props.commentId)
         ['email']
       }
     </div>
     <div className="post__comment-body">
       {
-        comments.find((comment) => comment['id'] === props.commentId)
+        comments.find((comment) => comment.id === props.commentId)
         ['body']
       }
     </div>
