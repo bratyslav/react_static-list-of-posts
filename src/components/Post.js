@@ -1,33 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../App.css';
 import posts from '../api/posts';
 import User from './User';
 import CommentList from './CommentList';
+import users from '../api/users';
 
 const Post = (props) => {
-  const userId = posts.find((post) => post.id === props.postId).userId;
+  const post = posts.find((post) => post.id === props.postId);
 
   return (
     <div>
       <h2 className="post__title">
-        {
-          posts
-            .find((post) => post.id === props.postId)
-            ['title']
-        }
+        {post.title}
       </h2>
       <div className="post__body">
-        {
-          posts
-            .find((post) => post.id === props.postId)
-            ['body']
-        }
+        {post.body}
       </div>
-      <User userId={userId} valueType={'name'} />
-      <User userId={userId} valueType={'email'} />
-      <User userId={userId} valueType={'address'} />
-      <CommentList postId={props.postId}/>
+      <User 
+        person={users.find((person) => person.id === post.userId)}
+      />
+      <CommentList 
+        postId={props.postId}
+      />
     </div>
   );
 };

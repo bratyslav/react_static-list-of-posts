@@ -1,33 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../App.css';
-import users from '../api/users';
 
-const User = (props) => {
-  if (props.valueType === 'address') {
-    return (
-      <div>
-        {
-          users
-            .find((person) => person['id'] === props.userId)
-            ['address']['city']
-        }
-      </div>
-    );
-  }
-  return (
+const User = ({person}) => (
+  <div>
     <div>
-      {
-        users
-          .find((person) => person['id'] === props.userId)
-          [props.valueType]
-      }
+      {person.name}
     </div>
-  );
-};
+    <div>
+      {person.email}
+    </div>
+    <div>
+      {person.address.city}
+    </div>
+  </div>
+);
 
 User.propTypes = {
-  valueType: PropTypes.string.isRequired
+  person: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    username: PropTypes.string,
+    email: PropTypes.string,
+    address: PropTypes.object,
+    phone: PropTypes.string,
+    website: PropTypes.string,
+    company: PropTypes.object
+  }).isRequired
 };
 
 export default User;
